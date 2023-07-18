@@ -1,5 +1,14 @@
 const ArticleCard = ({
-  article: { title, author, created_at, article_img_url, votes, comment_count },
+  article: {
+    title,
+    author,
+    created_at,
+    article_img_url,
+    votes,
+    comment_count,
+    body,
+  },
+  withBody,
 }) => {
   const date = new Date(created_at);
 
@@ -11,9 +20,14 @@ const ArticleCard = ({
         {date.toLocaleString("en-GB", { dateStyle: "medium" })}
       </p>
       <img src={article_img_url} />
+      {withBody ? <p className="article-body">{body}</p> : null}
       <div className="stats">
-        <p>Votes {votes}</p>
-        <p>Comments {comment_count}</p>
+        <p>
+          Votes <span className="votes">{votes}</span>
+        </p>
+        <p>
+          Comments <span className="comment-count">{comment_count}</span>
+        </p>
       </div>
     </section>
   );

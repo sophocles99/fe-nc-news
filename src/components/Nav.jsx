@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import User from "./User";
 
 const Nav = () => {
@@ -5,7 +6,7 @@ const Nav = () => {
     <nav>
       <h1 className="header">NC News</h1>
       <ul className="links-container">
-        <li className="link">Home</li>
+        <Link to="/"><li className="link">Home</li></Link>
         <li className="link">Another link?</li>
       </ul>
       <User className="user" />

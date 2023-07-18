@@ -1,8 +1,6 @@
 import ArticlesList from "./ArticlesList";
 import FilterBar from "./FilterBar";
-import { getTopics } from "../api";
-import { useEffect, useState } from "react";
-import titleCase from "../utils/title-case";
+import { useState } from "react";
 
 const Home = () => {
   const [topic, setTopic] = useState(null);

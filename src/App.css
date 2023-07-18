@@ -77,6 +77,12 @@ main {
   width: 45%;
 }
 
+.loading {
+  background-color: #c9ada7;
+  padding: 1rem;
+  border-radius: 1.5rem;
+}
+
 .articles-header {
   margin-bottom: 1rem;
 }

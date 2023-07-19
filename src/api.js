@@ -10,8 +10,12 @@ const getArticleById = (articleId) => {
   return ncNews.get(`articles/${articleId}`).then(({ data }) => data);
 };
 
+const getCommentsByArticleId = (articleId) => {
+  return ncNews.get(`articles/${articleId}/comments`).then(({ data }) => data);
+};
+
 const getTopics = () => {
   return ncNews.get("topics").then(({ data }) => data);
 };
 
-export { getArticles, getArticleById, getTopics };
+export { getArticles, getArticleById, getCommentsByArticleId, getTopics };

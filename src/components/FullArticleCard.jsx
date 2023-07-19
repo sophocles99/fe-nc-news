@@ -23,7 +23,6 @@ const FullArticleCard = ({ article }) => {
       .catch((err) => {
         setVotes((currentVotes) => currentVotes - incVotes);
         setIsVoteError(true);
-        console.log(err);
       });
   };
 

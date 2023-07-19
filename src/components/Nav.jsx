@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
+import { FaChevronLeft } from "react-icons/fa";
 import User from "./User";
 
-const Nav = () => {
+const Nav = ({ backArrow }) => {
   return (
     <nav>
-      <h1 className="header">NC News</h1>
-      <ul className="links-container">
-        <Link to="/"><li className="link">Home</li></Link>
-        <li className="link">Another link?</li>
-      </ul>
+      <Link
+        to="/"
+        className="back-arrow"
+        style={backArrow ? null : { display: "hidden" }}
+      >
+        {FaChevronLeft()}
+      </Link>
       <User className="user" />
     </nav>
   );

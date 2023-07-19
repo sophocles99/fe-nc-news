@@ -13,12 +13,10 @@ li {
 
 .App {
   display: grid;
-  grid-template-rows: 15% 85%;
+  grid-template-rows: 15vh 85vh;
   overflow: hidden;
-  width: 360px;
-  height: 800px;
-  border: 1px solid black;
-  border-radius: 1.5rem;
+  /* width: 360px;
+  height: 800px; */
   background-color: #f2e9e4;
   color: #22223b;
 }
@@ -128,7 +126,7 @@ a {
 
 .article-card img {
   margin: 0.5rem 0;
-  width: 100%;
+  max-width: 400px;
   border-radius: 0.6rem;
 }
 

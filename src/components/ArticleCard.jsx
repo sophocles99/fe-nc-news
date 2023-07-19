@@ -23,10 +23,10 @@ const ArticleCard = ({
       {withBody ? <p className="article-body">{body}</p> : null}
       <div className="stats">
         <p>
-          Votes <span className="votes">{votes}</span>
+          Comments <span className="comment-count">{comment_count}</span>
         </p>
         <p>
-          Comments <span className="comment-count">{comment_count}</span>
+          Votes <span className="votes">{votes}</span>
         </p>
       </div>
     </section>

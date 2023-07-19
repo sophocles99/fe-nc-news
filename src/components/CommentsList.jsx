@@ -23,6 +23,7 @@ const CommentsList = ({ article_id }) => {
 
   return (
     <ul className="comments-list">
+      {comments.length ? null : <p>No comments yet...</p>}
       {comments.map((comment) => (
         <li key={comment.comment_id}>
           <CommentCard comment={comment} />

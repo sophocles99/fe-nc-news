@@ -15,8 +15,7 @@ li {
   display: grid;
   grid-template-rows: 15vh 85vh;
   overflow: hidden;
-  /* width: 360px;
-  height: 800px; */
+  max-width: 600px;
   background-color: #f2e9e4;
   color: #22223b;
 }

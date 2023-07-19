@@ -14,6 +14,12 @@ const getCommentsByArticleId = (articleId) => {
   return ncNews.get(`articles/${articleId}/comments`).then(({ data }) => data);
 };
 
+const postCommentByArticleId = (articleId, newComment) => {
+  return ncNews
+    .post(`articles/${articleId}/comments`, { newComment })
+    .then(({ data }) => data);
+};
+
 const getTopics = () => {
   return ncNews.get("topics").then(({ data }) => data);
 };
@@ -29,6 +35,7 @@ export {
   getArticles,
   getArticleById,
   getCommentsByArticleId,
+  postCommentByArticleId,
   getTopics,
   patchArticleVote,
 };

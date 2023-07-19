@@ -2,14 +2,13 @@ import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { patchArticleVote } from "../api";
 import { useState } from "react";
 
-const FullArticleCard = ({ article }) => {
+const FullArticleCard = ({ article, commentCount }) => {
   const {
     article_id,
     title,
     author,
     created_at,
     article_img_url,
-    comment_count,
     body,
   } = article;
   const date = new Date(created_at);
@@ -20,7 +19,7 @@ const FullArticleCard = ({ article }) => {
     setVotes((currentVotes) => currentVotes + incVotes);
     patchArticleVote(article_id, incVotes)
       .then(() => setIsVoteError(false))
-      .catch((err) => {
+      .catch(() => {
         setVotes((currentVotes) => currentVotes - incVotes);
         setIsVoteError(true);
       });
@@ -37,7 +36,7 @@ const FullArticleCard = ({ article }) => {
       <p className="article-body">{body}</p>
       <div className="stats">
         <p>
-          Comments <span className="comment-count">{comment_count}</span>
+          Comments <span className="comment-count">{commentCount}</span>
         </p>
         <p>
           <button

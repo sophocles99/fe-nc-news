@@ -13,12 +13,10 @@ li {
 
 .App {
   display: grid;
-  grid-template-rows: 15% 85%;
+  grid-template-rows: 15vh 85vh;
   overflow: hidden;
-  width: 360px;
-  height: 800px;
-  border: 1px solid black;
-  border-radius: 1.5rem;
+  /* width: 360px;
+  height: 800px; */
   background-color: #f2e9e4;
   color: #22223b;
 }
@@ -93,7 +91,6 @@ nav {
     }
   }
 
-
   .articles-header {
     grid-area: articles-header;
     display: flex;
@@ -129,7 +126,7 @@ a {
 
 .article-card img {
   margin: 0.5rem 0;
-  width: 100%;
+  max-width: 400px;
   border-radius: 0.6rem;
 }
 
@@ -160,6 +157,24 @@ a {
 
 .article-page::-webkit-scrollbar {
   display: none;
+}
+
+.vote-button {
+  border: none;
+  padding-right: 0.25rem;
+}
+
+.vote-button-down:active {
+  color: red;
+}
+
+.vote-button-up:active {
+  color: green;
+}
+
+.vote-error {
+  text-align: right;
+  color: red
 }
 
 .comment-card {

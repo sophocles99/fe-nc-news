@@ -27,7 +27,7 @@ const ArticlesList = ({ topic }) => {
       {articles.map((article) => (
         <Link to={`/articles/${article.article_id}`} key={article.article_id}>
           <li>
-            <ArticleCard article={article} withBody={false} />
+            <ArticleCard article={article} />
           </li>
         </Link>
       ))}

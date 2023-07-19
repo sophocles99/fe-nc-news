@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
-import ArticleCard from "../components/ArticleCard";
 import CommentsList from "../components/CommentsList";
+import FullArticleCard from "../components/FullArticleCard";
 
 const Article = () => {
   const [article, setArticle] = useState({});
@@ -27,9 +27,9 @@ const Article = () => {
   return (
     <div className="article-page">
       <div className="articles-list">
-        <ArticleCard article={article} withBody={true} />
+        <FullArticleCard article={article} withBody={true} />
       </div>
-      <CommentsList article_id={article_id}/>
+      <CommentsList article_id={article_id} />
     </div>
   );
 };

@@ -18,4 +18,17 @@ const getTopics = () => {
   return ncNews.get("topics").then(({ data }) => data);
 };
 
-export { getArticles, getArticleById, getCommentsByArticleId, getTopics };
+const patchArticleVote = (articleId, inc_votes) => {
+  const newVote = { newVote: { inc_votes } };
+  return ncNews
+    .patch(`articles/${articleId}`, newVote)
+    .then(({ data }) => data);
+};
+
+export {
+  getArticles,
+  getArticleById,
+  getCommentsByArticleId,
+  getTopics,
+  patchArticleVote,
+};

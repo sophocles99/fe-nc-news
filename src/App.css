@@ -93,7 +93,6 @@ nav {
     }
   }
 
-
   .articles-header {
     grid-area: articles-header;
     display: flex;
@@ -160,6 +159,24 @@ a {
 
 .article-page::-webkit-scrollbar {
   display: none;
+}
+
+.vote-button {
+  border: none;
+  padding-right: 0.25rem;
+}
+
+.vote-button-down:active {
+  color: red;
+}
+
+.vote-button-up:active {
+  color: green;
+}
+
+.vote-error {
+  text-align: right;
+  color: red
 }
 
 .comment-card {

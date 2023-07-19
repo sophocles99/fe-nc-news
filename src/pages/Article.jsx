@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
-import ArticleCard from "./ArticleCard";
+import ArticleCard from "../components/ArticleCard";
+import CommentsList from "../components/CommentsList";
 
 const Article = () => {
   const [article, setArticle] = useState({});
@@ -24,11 +25,12 @@ const Article = () => {
   }
 
   return (
-    <main>
-      <div className="single-article">
+    <div className="article-page">
+      <div className="articles-list">
         <ArticleCard article={article} withBody={true} />
       </div>
-    </main>
+      <CommentsList article_id={article_id}/>
+    </div>
   );
 };
 

@@ -55,7 +55,7 @@ nav {
 
 .main-page {
   display: grid;
-  grid-template-rows: 0.05fr 0.05fr 0.875fr;
+  grid-template-rows: 0.075fr 0.05fr 0.875fr;
   grid-template-areas:
     "filters"
     "articles-header"
@@ -69,8 +69,40 @@ nav {
     align-items: center;
 
     .topic-selector,
-    .select-sortby {
-      width: 48%;
+    .sort-selector {
+      width: 49%;
+      height: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topic-selector-select,
+    .sort-selector-select {
+      border: none;
+      background-color: #faf7f5;
+      height: 2.5rem;
+      font-size: 1rem;
+    }
+    .topic-selector-select {
+      width: 100%;
+      cursor: pointer;
+    }
+    .sort-selector-select {
+      width: 70%;
+      cursor: pointer;
+    }
+    .sort-order-button {
+      border: none;
+      background-color: #faf7f5;
+      width: 13%;
+      height: 2.5rem;
+      cursor: pointer;
+    }
+
+    .selected {
+      background-color: #22223b;
+      color: #faf7f5;
     }
   }
 
@@ -154,7 +186,6 @@ a {
 .vote-button-up:active {
   color: green;
 }
-
 
 .comment-card {
   padding: 0.5rem;

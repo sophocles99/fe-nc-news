@@ -6,8 +6,8 @@ import { useParams } from "react-router-dom";
 
 const Main = () => {
   const { topic } = useParams();
-  const [sortBy, setSortBy] = useState(null);
-  const [order, setOrder] = useState(null);
+  const [sortBy, setSortBy] = useState("created_at");
+  const [order, setOrder] = useState("desc");
 
   return (
     <div className="main-page">

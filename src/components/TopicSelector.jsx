@@ -21,20 +21,22 @@ const TopicSelector = ({ topic }) => {
   };
 
   return (
-    <select
-      className="topic-selector"
-      onChange={(e) => redirect(e.target.value)}
-      value={topic}
-    >
-      <option value={"All Topics"}>All Topics</option>
-      {topics.map(({ slug }) => {
-        return (
-          <option value={slug} key={slug}>
-            {titleCase(slug)}
-          </option>
-        );
-      })}
-    </select>
+    <div className="topic-selector">
+      <select
+        className="topic-selector-select"
+        onChange={(e) => redirect(e.target.value)}
+        value={topic}
+      >
+        <option value={"All Topics"}>All Topics</option>
+        {topics.map(({ slug }) => {
+          return (
+            <option value={slug} key={slug}>
+              {titleCase(slug)}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
 };
 

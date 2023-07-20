@@ -16,7 +16,7 @@ const ArticlesList = ({ topic, sortBy, order }) => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, [topic]);
+  }, [topic, sortBy, order]);
 
   if (isLoading) {
     return <p className="loading">Loading data...</p>;

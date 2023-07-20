@@ -1,14 +1,17 @@
 import ArticlesList from "../components/ArticlesList";
-import FilterBar from "../components/FilterBar";
+import TopicSelector from "../components/TopicSelector";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Main = () => {
-  const [topic, setTopic] = useState(null);
+  const { topic } = useParams();
   const [sortBy, setSortBy] = useState(null);
 
   return (
     <div className="main-page">
-      <FilterBar setTopic={setTopic} setSortBy={setSortBy} />
+      <section className="filters">
+        <TopicSelector topic={topic} />
+      </section>
       <h2 className="articles-header">
         Viewing {topic ? `articles on ${topic}` : "all articles"}
       </h2>

@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
+:root {
+  --background: #1b263b; /* #f2e9e4 */
+  --highlight: #415a77; /* #faf7f5 */
+  --foreground: #e0e1dd; /* #22223b */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -18,12 +24,12 @@ li {
   height: 100vh;
   max-width: 100vw;
   padding: 1rem;
-  background-color: #f2e9e4;
-  color: #22223b;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 .loading {
-  background-color: #c9ada7;
+  background-color: var(--highlight);
   padding: 1rem;
   border-radius: 1.5rem;
   height: 3rem;
@@ -33,7 +39,8 @@ li {
   color: #901429;
 }
 
-.vote-error, .comment-delete-error {
+.vote-error,
+.comment-delete-error {
   text-align: right;
   color: #901429;
 }
@@ -42,10 +49,10 @@ nav {
   display: flex;
   justify-content: space-between;
   font-size: 2.5rem;
-  color: #22223b;
+  color: var(--foreground);
 
   & a {
-    color: #22223b;
+    color: var(--foreground);
   }
 
   & .back-arrow {
@@ -81,7 +88,7 @@ nav {
     .sort-selector-select {
       border: none;
       border-radius: 0.5rem;
-      background-color: #faf7f5;
+      background-color: var(--highlight);
       height: 2.5rem;
       font-size: 1rem;
     }
@@ -96,15 +103,15 @@ nav {
     .sort-order-button {
       border: none;
       border-radius: 0.5rem;
-      background-color: #faf7f5;
+      background-color: var(--highlight);
       width: 13%;
       height: 2.5rem;
       cursor: pointer;
     }
 
     .selected {
-      background-color: #22223b;
-      color: #faf7f5;
+      background-color: var(--foreground);
+      color: var(--highlight);
     }
   }
 
@@ -127,7 +134,7 @@ nav {
 
 .article-card {
   /* background-color: #c9ada7; */
-  color: #22223b;
+  color: var(--foreground);
   border-radius: 0.75rem;
   margin-bottom: 0.75rem;
   padding-top: 0.5rem;
@@ -178,7 +185,7 @@ a {
 
 .vote-button {
   border: none;
-  background-color: #f2e9e4;
+  background-color: var(--background);
   padding-right: 0.25rem;
 }
 
@@ -192,7 +199,7 @@ a {
 
 .comment-card {
   padding: 0.5rem;
-  background-color: #faf7f5;
+  background-color: var(--highlight);
   border-radius: 0.5rem;
   margin-bottom: 0.5rem;
 }
@@ -218,12 +225,18 @@ a {
 .comment-card-delete {
   border: none;
   border-radius: 0.5rem;
-  background-color: #f2e9e4;
+  background-color: var(--background);
   font-size: 1rem;
   padding: 0.5rem;
 }
 
 .comment-form textarea {
+  background-color: var(--highlight);
+  color: var(--foreground);
   border: none;
   width: 100%;
+}
+
+.comment-form textarea::placeholder {
+  color: var(--foreground);
 }

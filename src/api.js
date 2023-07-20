@@ -2,8 +2,8 @@ import axios from "axios";
 const baseURL = "https://nc-news-dvu9.onrender.com/api/";
 const ncNews = axios.create({ baseURL });
 
-const getArticles = (topic) => {
-  return ncNews.get("articles", { params: { topic } }).then(({ data }) => data);
+const getArticles = (topic, sort_by, order) => {
+  return ncNews.get("articles", { params: { topic, sort_by, order } }).then(({ data }) => data);
 };
 
 const getArticleById = (articleId) => {

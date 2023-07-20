@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { getArticles } from "../api";
 import ArticleCard from "./ArticleCard";
 
-const ArticlesList = ({ topic }) => {
+const ArticlesList = ({ topic, sortBy, order }) => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getArticles(topic)
+    getArticles(topic, sortBy, order)
       .then(({ articles }) => {
         setArticles(articles);
       })

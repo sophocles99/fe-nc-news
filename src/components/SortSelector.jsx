@@ -2,23 +2,16 @@ import { FaSortAmountUp, FaSortAmountDown } from "react-icons/fa";
 
 const SortSelector = ({ sortBy, setSortBy, order, setOrder }) => {
   const sortByOptions = [
-    { value: "", text: "Sort By" },
-    { value: "created_at", text: "Date" },
-    { value: "comment_count", text: "Comments" },
-    { value: "votes", text: "Votes" },
+    { value: "created_at", text: "Sort By Date" },
+    { value: "comment_count", text: "Sort By Comments" },
+    { value: "votes", text: "Sort By Votes" },
   ];
-  if (!sortBy) sortBy = "";
-
-  const changeSortBy = (newSortBy) => {
-    if (newSortBy === "") newSortBy = null;
-    setSortBy(newSortBy);
-  };
 
   return (
     <div className="sort-selector">
       <select
         value={sortBy}
-        onChange={(e) => changeSortBy(e.target.value)}
+        onChange={(e) => setSortBy(e.target.value)}
         className="sort-selector-select"
       >
         {sortByOptions.map((sortByOption) => {
@@ -30,13 +23,17 @@ const SortSelector = ({ sortBy, setSortBy, order, setOrder }) => {
         })}
       </select>
       <button
-        className="sort-order-button ascending"
+        className={`sort-order-button ascending ${
+          order === "asc" ? "selected" : ""
+        }`}
         onClick={() => setOrder("asc")}
       >
         {FaSortAmountUp()}
       </button>
       <button
-        className="sort-order-button descending"
+        className={`sort-order-button descending ${
+          order === "desc" ? "selected" : ""
+        }`}
         onClick={() => setOrder("desc")}
       >
         {FaSortAmountDown()}

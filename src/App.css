@@ -86,15 +86,23 @@ nav {
     }
     .topic-selector-select {
       width: 100%;
+      cursor: pointer;
     }
     .sort-selector-select {
       width: 70%;
+      cursor: pointer;
     }
     .sort-order-button {
       border: none;
       background-color: #faf7f5;
       width: 13%;
       height: 2.5rem;
+      cursor: pointer;
+    }
+
+    .selected {
+      background-color: #22223b;
+      color: #faf7f5;
     }
   }
 

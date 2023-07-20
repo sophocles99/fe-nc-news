@@ -4,7 +4,7 @@ import titleCase from "../utils/title-case";
 import { useNavigate } from "react-router-dom";
 
 const TopicSelector = ({ topic }) => {
-  console.log(topic);
+  if (!topic) topic = "All Topics";
   const [topics, setTopics] = useState([]);
   const navigate = useNavigate();
 
@@ -24,7 +24,7 @@ const TopicSelector = ({ topic }) => {
     <select
       className="topic-selector"
       onChange={(e) => redirect(e.target.value)}
-      value={topic ? topic : "All Topics"}
+      value={topic}
     >
       <option value={"All Topics"}>All Topics</option>
       {topics.map(({ slug }) => {

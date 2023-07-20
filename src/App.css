@@ -57,18 +57,18 @@ nav {
   display: grid;
   grid-template-rows: 0.05fr 0.05fr 0.875fr;
   grid-template-areas:
-    "filter-bar"
+    "filters"
     "articles-header"
     "articles-list";
   padding: 0 0.5rem;
 
-  .filter-bar {
-    grid-area: filter-bar;
+  .filters {
+    grid-area: filters;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .select-topic,
+    .topic-selector,
     .select-sortby {
       width: 48%;
     }

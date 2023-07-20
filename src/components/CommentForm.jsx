@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { postCommentByArticleId } from "../api";
 
-const username = "tickle122"; // TODO - useContext to store logged in username
-
-const CommentForm = ({ article_id, setComments, setCommentCount }) => {
+const CommentForm = ({ article_id, setComments, setCommentCount, username }) => {
   const [isActive, setIsActive] = useState(false);
   const [commentInput, setCommentInput] = useState("");
   const [isPosting, setIsPosting] = useState(false)
@@ -39,7 +37,7 @@ const CommentForm = ({ article_id, setComments, setCommentCount }) => {
       .catch(() => {
         // Undo optimistic render and show error
         setComments((currentComments) => currentComments.slice(1));
-        setCommentCount((currentCommentCount) => currentCommentCount - 1);
+        setCommentCount((currentCommentCount) => Number(currentCommentCount) - 1);
         setIsError(true);
       });
   };

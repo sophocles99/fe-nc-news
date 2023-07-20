@@ -30,12 +30,12 @@ li {
 }
 
 .comment-error {
-  color: red;
+  color: #901429;
 }
 
-.vote-error {
+.vote-error, .comment-delete-error {
   text-align: right;
-  color: red;
+  color: #901429;
 }
 
 nav {
@@ -80,6 +80,7 @@ nav {
     .topic-selector-select,
     .sort-selector-select {
       border: none;
+      border-radius: 0.5rem;
       background-color: #faf7f5;
       height: 2.5rem;
       font-size: 1rem;
@@ -94,6 +95,7 @@ nav {
     }
     .sort-order-button {
       border: none;
+      border-radius: 0.5rem;
       background-color: #faf7f5;
       width: 13%;
       height: 2.5rem;
@@ -176,6 +178,7 @@ a {
 
 .vote-button {
   border: none;
+  background-color: #f2e9e4;
   padding-right: 0.25rem;
 }
 
@@ -192,6 +195,32 @@ a {
   background-color: #faf7f5;
   border-radius: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.comment-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  /* height: 1.5rem; */
+  padding-top: 0.5rem;
+}
+
+.comment-card-votes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-card-votes .votes {
+  padding-left: 0.25rem;
+}
+
+.comment-card-delete {
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #f2e9e4;
+  font-size: 1rem;
+  padding: 0.5rem;
 }
 
 .comment-form textarea {

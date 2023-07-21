@@ -26,7 +26,6 @@ const CommentForm = ({
       votes: 0,
       created_at: new Date(),
     };
-    console.log(optimisticPostedComment);
     setComments((currentComments) => [
       optimisticPostedComment,
       ...currentComments,

@@ -9,7 +9,9 @@ const getArticles = (topic, sort_by, order) => {
 };
 
 const getArticleById = (articleId) => {
-  return ncNews.get(`articles/${articleId}`).then(({ data }) => data);
+  return ncNews
+    .get(`articles/${articleId}`)
+    .then(({ data }) => data);
 };
 
 const patchArticleVote = (articleId, inc_votes) => {

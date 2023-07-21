@@ -1,26 +1,32 @@
 import { useState } from "react";
 import { postCommentByArticleId } from "../api";
 
-const CommentForm = ({ article_id, setComments, setCommentCount, username }) => {
+const CommentForm = ({
+  article_id,
+  setComments,
+  setCommentCount,
+  username,
+}) => {
   const [isActive, setIsActive] = useState(false);
   const [commentInput, setCommentInput] = useState("");
-  const [isPosting, setIsPosting] = useState(false)
+  const [isPosting, setIsPosting] = useState(false);
   const [isError, setIsError] = useState(false);
 
   const addComment = (e) => {
     e.preventDefault();
-    setIsPosting(true)
+    setIsPosting(true);
     const newComment = { username, body: commentInput };
-    
+
     // Render optimistically
     const optimisticPostedComment = {
-      comment_id: -1,
+      comment_id: Date.now(),
       body: commentInput,
       article_id,
       author: username,
       votes: 0,
       created_at: new Date(),
     };
+    console.log(optimisticPostedComment);
     setComments((currentComments) => [
       optimisticPostedComment,
       ...currentComments,
@@ -29,15 +35,24 @@ const CommentForm = ({ article_id, setComments, setCommentCount, username }) => 
 
     // Actually post new comment
     postCommentByArticleId(article_id, newComment)
-      .then(() => {
-        setIsPosting(false)
+      .then(({ comment }) => {
+        // Update comment_id of optimisticPostedComment to allow deletion
+        const postedCommentId = comment.comment_id;
+        setComments((currentComments) => {
+          const optimisticPostedComment = currentComments[0];
+          optimisticPostedComment.comment_id = postedCommentId;
+          return [optimisticPostedComment, ...currentComments.slice(1)];
+        });
+        setIsPosting(false);
         setIsError(false);
         setCommentInput("");
       })
       .catch(() => {
         // Undo optimistic render and show error
         setComments((currentComments) => currentComments.slice(1));
-        setCommentCount((currentCommentCount) => Number(currentCommentCount) - 1);
+        setCommentCount(
+          (currentCommentCount) => Number(currentCommentCount) - 1
+        );
         setIsError(true);
       });
   };

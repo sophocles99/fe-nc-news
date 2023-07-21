@@ -4,6 +4,7 @@
   --background: #1b263b; /* #f2e9e4 */
   --highlight: #415a77; /* #faf7f5 */
   --foreground: #e0e1dd; /* #22223b */
+  --error: #c52943;
 }
 
 * {
@@ -36,13 +37,13 @@ li {
 }
 
 .comment-error {
-  color: #901429;
+  color: var(--error);
 }
 
 .vote-error,
 .comment-delete-error {
   text-align: right;
-  color: #901429;
+  color: var(--error);
 }
 
 nav {
@@ -89,6 +90,7 @@ nav {
       border: none;
       border-radius: 0.5rem;
       background-color: var(--highlight);
+      color: var(--foreground);
       height: 2.5rem;
       font-size: 1rem;
     }
@@ -187,6 +189,7 @@ a {
   border: none;
   background-color: var(--background);
   padding-right: 0.25rem;
+  color: var(--foreground);
 }
 
 .vote-button-down:active {
@@ -222,10 +225,11 @@ a {
   padding-left: 0.25rem;
 }
 
-.comment-card-delete {
+.comment-card-delete-button {
   border: none;
   border-radius: 0.5rem;
   background-color: var(--background);
+  color: var(--foreground);
   font-size: 1rem;
   padding: 0.5rem;
 }

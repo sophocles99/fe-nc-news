@@ -29,33 +29,16 @@ li {
   color: var(--foreground);
 }
 
-.loading {
-  background-color: var(--highlight);
-  padding: 1rem;
-  border-radius: 1.5rem;
-  height: 3rem;
-}
-
-.comment-error {
-  color: var(--error);
-}
-
-.vote-error,
-.comment-delete-error {
-  text-align: right;
-  color: var(--error);
-}
-
 nav {
   display: flex;
   justify-content: space-between;
   font-size: 2.5rem;
   color: var(--foreground);
-
+  
   & a {
     color: var(--foreground);
   }
-
+  
   & .back-arrow {
     translate: -0.25rem;
   }
@@ -65,9 +48,9 @@ nav {
   display: grid;
   grid-template-rows: 0.075fr 0.05fr 0.875fr;
   grid-template-areas:
-    "filters"
-    "articles-header"
-    "articles-list";
+  "filters"
+  "articles-header"
+  "articles-list";
   padding: 0 0.5rem;
 
   .filters {
@@ -75,7 +58,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    
     .topic-selector,
     .sort-selector {
       width: 49%;
@@ -84,7 +67,7 @@ nav {
       justify-content: space-between;
       align-items: center;
     }
-
+    
     .topic-selector-select,
     .sort-selector-select {
       border: none;
@@ -122,7 +105,7 @@ nav {
     display: flex;
     align-items: center;
   }
-
+  
   .articles-list {
     grid-area: articles-list;
     overflow: auto;
@@ -175,8 +158,8 @@ a {
   display: grid;
   grid-template-rows: 6fr 4fr;
   grid-template-areas:
-    "articles-list"
-    "comments-list";
+  "articles-list"
+  "comments-list";
   padding: 0 0.5rem;
   overflow: auto;
 }
@@ -243,4 +226,35 @@ a {
 
 .comment-form textarea::placeholder {
   color: var(--foreground);
+}
+
+.loading-card, .error-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--highlight);
+  padding: 1rem;
+  border-radius: 1.5rem;
+  height: 10rem;
+  font-size: 1.5rem;
+}
+
+.error-card Button {
+  color: var(--foreground);
+  background-color: var(--background);
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 1.5rem;
+}
+
+.comment-error {
+  color: var(--error);
+}
+
+.vote-error,
+.comment-delete-error {
+  text-align: right;
+  color: var(--error);
 }

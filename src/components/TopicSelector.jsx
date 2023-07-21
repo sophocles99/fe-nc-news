@@ -3,15 +3,10 @@ import { useEffect, useState } from "react";
 import titleCase from "../utils/title-case";
 import { useNavigate } from "react-router-dom";
 
-const TopicSelector = ({ topic }) => {
+const TopicSelector = ({ topics, topic }) => {
   if (!topic) topic = "All Topics";
-  const [topics, setTopics] = useState([]);
+
   const navigate = useNavigate();
-
-  useEffect(() => {
-    getTopics().then(({ topics }) => setTopics(topics));
-  }, []);
-
   const redirect = (topic) => {
     if (topic === "All Topics") {
       navigate("/");

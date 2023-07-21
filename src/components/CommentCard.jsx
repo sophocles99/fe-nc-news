@@ -1,5 +1,36 @@
-const CommentCard = ({ comment: { author, created_at, body, votes } }) => {
+import { useState } from "react";
+import { deleteComment } from "../api";
+
+import CommentCardDelete from "./CommentCardDelete";
+
+const CommentCard = ({
+  comment: { comment_id, author, created_at, body, votes },
+  setComments,
+  setCommentCount,
+  username,
+}) => {
   const date = new Date(created_at);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const handleDelete = (commentId) => {
+    setIsDeleting(true);
+    deleteComment(commentId)
+      .then(() => {
+        setComments((currentComments) =>
+          currentComments.filter((comment) => comment.comment_id !== commentId)
+        );
+        setCommentCount(
+          (currentCommentCount) => Number(currentCommentCount) - 1
+        );
+        setIsDeleting(false);
+        setIsError(false);
+      })
+      .catch(() => {
+        setIsDeleting(false);
+        setIsError(true);
+      });
+  };
 
   return (
     <section className="comment-card">
@@ -7,8 +38,20 @@ const CommentCard = ({ comment: { author, created_at, body, votes } }) => {
         Posted by <span className="author">{author}</span> on{" "}
         {date.toLocaleString("en-GB", { dateStyle: "medium" })}
       </p>
-      <p className="comment-body">{body}</p>
-      <p>Votes <span className="votes">{votes}</span></p>
+      <p className="comment-card-body">{body}</p>
+      <div className="comment-card-footer">
+        <div className="comment-card-votes">
+          Votes <span className="votes">{votes}</span>
+        </div>
+        {author === username ? (
+          <CommentCardDelete
+            comment_id={comment_id}
+            handleDelete={handleDelete}
+            isDeleting={isDeleting}
+            isError={isError}
+          />
+        ) : null}
+      </div>
     </section>
   );
 };

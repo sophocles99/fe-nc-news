@@ -42,9 +42,9 @@ const Article = () => {
 
   return (
     <div className="article-page">
-      <div className="articles-list">
+      {/* <div className="articles-list"> */}
         <FullArticleCard article={article} commentCount={commentCount} />
-      </div>
+      {/* </div> */}
       <CommentsList article_id={article_id} setCommentCount={setCommentCount} />
     </div>
   );

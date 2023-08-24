@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
-import { FaChevronLeft } from "react-icons/fa";
-import User from "./User";
+import { FaBars, FaChevronCircleLeft, FaUser } from "react-icons/fa";
 
-const Nav = ({ backArrow }) => {
+const Nav = ({ page }) => {
   return (
     <nav>
-      <Link
-        to="/"
-        className="back-arrow"
-        style={backArrow ? null : { display: "hidden" }}
-      >
-        {FaChevronLeft()}
+      <Link to={page === "home" ? "" : "/"} style={{ verticalAlign: "middle" }}>
+        {page === "home" ? (
+          <FaBars className="icon" />
+        ) : (
+          <FaChevronCircleLeft className="icon" />
+        )}
       </Link>
-      <User className="user" />
+      <p className="title">
+        <span className="company-name">NC</span>News
+      </p>
+      <FaUser className="icon" />
     </nav>
   );
 };

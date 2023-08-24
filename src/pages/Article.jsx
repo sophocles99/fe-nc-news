@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
+import Nav from "../components/Nav";
 import CommentsList from "../components/CommentsList";
 import FullArticleCard from "../components/FullArticleCard";
 import ErrorCard from "../components/ErrorCard";
@@ -42,6 +43,7 @@ const Article = () => {
 
   return (
     <div className="article-page">
+      <Nav page="article" />
       {/* <div className="articles-list"> */}
         <FullArticleCard article={article} commentCount={commentCount} />
       {/* </div> */}

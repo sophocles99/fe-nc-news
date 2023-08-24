@@ -14,7 +14,9 @@ const Home = () => {
   const [order, setOrder] = useState("desc");
 
   useEffect(() => {
-    getTopics().then(({ topics }) => setTopics(topics));
+    getTopics().then(({ topics }) =>
+      setTopics([{ slug: "All Topics" }, ...topics])
+    );
   }, [topic]);
 
   if (topic && !topics.map(({ slug }) => slug).includes(topic)) {

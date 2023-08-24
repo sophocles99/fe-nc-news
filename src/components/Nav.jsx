@@ -4,16 +4,16 @@ import { FaBars, FaChevronCircleLeft, FaUser } from "react-icons/fa";
 const Nav = ({ page }) => {
   return (
     <nav>
-      <Link to={page === "home" ? "" : "/"} style={{ verticalAlign: "middle" }}>
+      <Link to={page === "home" ? "" : "/"}>
         {page === "home" ? (
           <FaBars className="icon" />
         ) : (
           <FaChevronCircleLeft className="icon" />
         )}
       </Link>
-      <p className="title">
+      <Link className="title" to="/">
         <span className="company-name">NC</span>News
-      </p>
+      </Link>
       <FaUser className="icon" />
     </nav>
   );

@@ -1,24 +1,19 @@
+import ago from "../utils/ago";
+
 const ArticleCard = ({
-  article: { title, author, created_at, article_img_url, votes, comment_count },
+  article: { article_img_url, title, topic, created_at, comment_count, votes },
 }) => {
   const date = new Date(created_at);
+  const agoString = ago(date);
 
   return (
     <section className="article-card">
-      <h3>{title}</h3>
-      <p>
-        Posted by <span className="author">{author}</span> on{" "}
-        {date.toLocaleString("en-GB", { dateStyle: "medium" })}
-      </p>
       <img src={article_img_url} />
-      <div className="stats">
-        <p>
-          Comments <span className="comment-count">{comment_count}</span>
-        </p>
-        <p>
-          Votes <span className="votes">{votes}</span>
-        </p>
-      </div>
+      <p className="title">{title}</p>
+      <p className="topic">{topic}</p>
+      <p className="ago-string">{agoString}</p>
+      <p className="comments">{`Comments ${comment_count}`}</p>
+      <p className="votes">{`Votes ${votes}`}</p>
     </section>
   );
 };

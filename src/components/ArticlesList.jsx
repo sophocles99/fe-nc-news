@@ -25,11 +25,11 @@ const ArticlesList = ({ topic, sortBy, order }) => {
   return (
     <ul className="articles-list">
       {articles.map((article) => (
-        <Link to={`/articles/${article.article_id}`} key={article.article_id}>
-          <li>
+        <li key={article.article_id}>
+          <Link to={`/articles/${article.article_id}`}>
             <ArticleCard article={article} />
-          </li>
-        </Link>
+          </Link>
+        </li>
       ))}
     </ul>
   );

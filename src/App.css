@@ -3,6 +3,7 @@
 :root {
   --background: #fcfaf8; /* #f2e9e4 */
   --highlight: #415a77; /* #faf7f5 */
+  --image-text: #fcfaf8;
   --foreground: #141e28; /* #22223b */
   --error: #c52943;
 }
@@ -59,6 +60,8 @@ a {
   gap: 0.5rem;
   padding-bottom: 1rem;
   overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none
 }
 
 .topic-menu::-webkit-scrollbar {
@@ -125,16 +128,10 @@ a {
   color: var(--highlight);
 }
 
-.articles-header {
-  grid-area: articles-header;
-  display: flex;
-  align-items: center;
-}
-
 .articles-list {
-  grid-area: articles-list;
   overflow: auto;
   scrollbar-width: none;
+  -ms-overflow-style: none
 }
 
 .articles-list::-webkit-scrollbar {
@@ -143,9 +140,9 @@ a {
 
 .article-card {
   color: var(--foreground);
-  border-radius: 0.75rem;
-  margin-bottom: 0.75rem;
-  padding-top: 0.5rem;
+  border-radius: 2rem;
+  /* margin-bottom: 0.75rem; */
+  padding-bottom: 0.5rem;
 }
 
 .author {
@@ -155,7 +152,7 @@ a {
 .article-card img {
   margin: 0.5rem 0;
   max-width: 100%;
-  border-radius: 0.6rem;
+  border-radius: 1rem;
 }
 
 .article-card .article-body {

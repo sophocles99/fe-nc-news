@@ -14,18 +14,7 @@ const TopicMenu = ({ topics, topic }) => {
   };
 
   return (
-    <div className="topic-menu">
-      <button
-        className={`topic-button ${
-          selectedTopic === "All Topics" ? "topic-selected" : ""
-        }`}
-        onClick={() => {
-          setSelectedTopic("All Topics");
-          redirect("All Topics");
-        }}
-      >
-        All Topics
-      </button>
+    <section className="topic-menu">
       {topics.map(({ slug }) => (
         <button
           className={`topic-button ${
@@ -40,7 +29,7 @@ const TopicMenu = ({ topics, topic }) => {
           {titleCase(slug)}
         </button>
       ))}
-    </div>
+    </section>
   );
 };
 

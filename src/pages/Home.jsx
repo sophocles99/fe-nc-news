@@ -1,12 +1,13 @@
+import Nav from "../components/Nav";
 import ArticlesList from "../components/ArticlesList";
 import ErrorCard from "../components/ErrorCard";
+import TopicMenu from "../components/TopicMenu";
 import SortSelector from "../components/SortSelector";
-import TopicSelector from "../components/TopicSelector";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getTopics } from "../api";
 
-const Main = () => {
+const Home = () => {
   const { topic } = useParams();
   const [topics, setTopics] = useState([]);
   const [sortBy, setSortBy] = useState("created_at");
@@ -21,22 +22,20 @@ const Main = () => {
   }
 
   return (
-    <div className="main-page">
-      <section className="filters">
-        <TopicSelector topics={topics} topic={topic} />
+    <>
+      <Nav page="home" />
+      <TopicMenu topics={topics} topic={topic} className="topic-menu" />
+      {/* <section className="filters">
         <SortSelector
           sortBy={sortBy}
           setSortBy={setSortBy}
           order={order}
           setOrder={setOrder}
         />
-      </section>
-      <h2 className="articles-header">
-        Viewing {topic ? `articles on ${topic}` : "all articles"}
-      </h2>
+      </section> */}
       <ArticlesList topic={topic} sortBy={sortBy} order={order} />
-    </div>
+    </>
   );
 };
 
-export default Main;
+export default Home;

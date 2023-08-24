@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import titleCase from "../utils/title-case";
 
 const TopicMenu = ({ topics, topic }) => {
@@ -34,39 +36,3 @@ const TopicMenu = ({ topics, topic }) => {
 };
 
 export default TopicMenu;
-
-import { getTopics } from "../api";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-const TopicSelector = ({ topics, topic }) => {
-  if (!topic) topic = "All Topics";
-
-  const navigate = useNavigate();
-  const redirect = (topic) => {
-    if (topic === "All Topics") {
-      navigate("/");
-    } else {
-      navigate(`/topics/${topic}`);
-    }
-  };
-
-  return (
-    <div className="topic-selector">
-      <select
-        className="topic-selector-select"
-        onChange={(e) => redirect(e.target.value)}
-        value={topic}
-      >
-        <option value={"All Topics"}>All Topics</option>
-        {topics.map(({ slug }) => {
-          return (
-            <option value={slug} key={slug}>
-              {titleCase(slug)}
-            </option>
-          );
-        })}
-      </select>
-    </div>
-  );
-};

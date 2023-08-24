@@ -37,18 +37,23 @@ const Article = () => {
         <ErrorCard message={`Sorry, article ${article_id} does not exist`} />
       );
     } else {
-      return <ErrorCard message={`Sorry, unable to fetch article ${article_id}`} />
+      return (
+        <ErrorCard message={`Sorry, unable to fetch article ${article_id}`} />
+      );
     }
   }
 
   return (
-    <div className="article-page">
+    <>
       <Nav page="article" />
-      {/* <div className="articles-list"> */}
+      <section className="full-article">
         <FullArticleCard article={article} commentCount={commentCount} />
-      {/* </div> */}
-      <CommentsList article_id={article_id} setCommentCount={setCommentCount} />
-    </div>
+        <CommentsList
+          article_id={article_id}
+          setCommentCount={setCommentCount}
+        />
+      </section>
+    </>
   );
 };
 

@@ -160,22 +160,16 @@ a {
   margin-bottom: 0.75rem;
 }
 
-.article-card .stats {
-  display: flex;
-  justify-content: space-between;
-}
-
 .votes,
 .comment-count {
   font-weight: bold;
 }
 
-.article-page {
-  padding: 0 0.5rem;
+.full-article {
   overflow: auto;
 }
 
-.article-page::-webkit-scrollbar {
+.full-article::-webkit-scrollbar {
   display: none;
 }
 

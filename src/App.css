@@ -16,6 +16,11 @@
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+  color: var(--foreground);
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -46,11 +51,6 @@ nav .title .company-name {
 
 nav .icon {
   vertical-align: middle;
-}
-
-a {
-  text-decoration: none;
-  color: var(--foreground);
 }
 
 .topic-menu {
@@ -175,9 +175,20 @@ a {
   padding: 0.75rem 1rem;
 }
 
-.article-card .article-body {
-  text-align: justify;
-  margin-bottom: 0.75rem;
+@media screen and (min-width: 600px) {
+  .topic-menu {
+    margin: 0 auto;
+  }
+
+  .articles-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+  }
+
+  .article-card {
+    max-width: 376px;
+  }
 }
 
 .full-article {

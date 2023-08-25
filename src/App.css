@@ -159,8 +159,22 @@ nav .icon {
 }
 
 .full-article .written-by {
+  display: flex;
+  align-items: center;
+  gap: var(--regular-gap);
+  font-size: 0.75rem;
+}
+
+.full-article .written-by {
   padding-top: var(--regular-gap);
   padding-bottom: var(--regular-gap);
+}
+
+.full-article .author-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid var(--foreground)
 }
 
 .full-article .author {

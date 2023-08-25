@@ -30,13 +30,16 @@ const FullArticle = ({ article, commentCount }) => {
     <section className="article-card full-article">
       <img src={article_img_url} />
       <p className="title">{title}</p>
-      <p className="written-by">
-        <span className="author">{fullAuthor.name}</span> on{" "}
-        {date.toLocaleString("en-GB", { dateStyle: "medium" })}
-      </p>
+      <div className="written-by">
+        <img src={fullAuthor.avatar_url} className="author-avatar" />
+        <p>
+          <span className="author">{fullAuthor.name}</span> on{" "}
+          {date.toLocaleString("en-GB", { dateStyle: "medium" })}
+        </p>
+      </div>
       <p className="body">{body}</p>
       <div className="footer">
-        {/* <p className="comments">{`Comments ${comment_count}`}</p> */}
+        <p className="comments">{`Comments ${commentCount}`}</p>
         <p>
           <button
             className="vote-button vote-button-down"

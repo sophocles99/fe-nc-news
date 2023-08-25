@@ -36,8 +36,8 @@ const CommentCard = ({
 
   return (
     <section className="comment-card">
-      <p>
-        <span className="author">{author}</span> {agoString}
+      <p className="comment-card-written-by">
+        <span className="comment-card-author">{author}</span> {agoString}
       </p>
       <p className="comment-card-body">{body}</p>
       <div className="comment-card-footer">

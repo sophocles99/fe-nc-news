@@ -46,7 +46,7 @@ const Article = () => {
   return (
     <>
       <Nav page="article" />
-      <section className="full-article">
+      <section className="full-article-container">
         <FullArticle article={article} commentCount={commentCount} />
         <CommentsList
           article_id={article_id}

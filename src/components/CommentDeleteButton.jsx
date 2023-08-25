@@ -15,7 +15,7 @@ const CommentCardDelete = ({
   } else {
     return (
       <button
-        className="comment-card-delete-button"
+        className="comment-delete-button"
         onClick={() => {
           handleDelete(comment_id);
         }}

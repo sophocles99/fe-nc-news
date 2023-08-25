@@ -66,24 +66,26 @@ const CommentForm = ({
           setCommentInput(e.target.value);
         }}
       ></textarea>
-      <button
-        type="submit"
-        disabled={!commentInput.length || isPosting}
-        style={{ display: `${isActive ? "inline-block" : "none"}` }}
-      >
-        Comment
-      </button>
-      <button
-        type="reset"
-        style={{ display: `${isActive ? "inline-block" : "none"}` }}
-        onClick={() => {
-          setIsError(false);
-          setCommentInput("");
-          setIsActive(false);
-        }}
-      >
-        Cancel
-      </button>
+      <div className="button-container">
+        <button
+          type="submit"
+          disabled={!commentInput.length || isPosting}
+          style={{ display: `${isActive ? "inline-block" : "none"}` }}
+        >
+          Comment
+        </button>
+        <button
+          type="reset"
+          style={{ display: `${isActive ? "inline-block" : "none"}` }}
+          onClick={() => {
+            setIsError(false);
+            setCommentInput("");
+            setIsActive(false);
+          }}
+        >
+          Cancel
+        </button>
+      </div>
       {isError ? (
         <p className="comment-error">Sorry, your comment could not be posted</p>
       ) : null}

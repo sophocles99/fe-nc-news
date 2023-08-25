@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { deleteComment } from "../api";
 
-import CommentCardDelete from "./CommentCardDelete";
+import CommentDeleteButton from "./CommentDeleteButton";
+import ago from "../utils/ago";
 
 const CommentCard = ({
   comment: { comment_id, author, created_at, body, votes },
@@ -10,6 +11,7 @@ const CommentCard = ({
   username,
 }) => {
   const date = new Date(created_at);
+  const agoString = ago(date);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -35,8 +37,7 @@ const CommentCard = ({
   return (
     <section className="comment-card">
       <p>
-        Posted by <span className="author">{author}</span> on{" "}
-        {date.toLocaleString("en-GB", { dateStyle: "medium" })}
+        <span className="author">{author}</span> {agoString}
       </p>
       <p className="comment-card-body">{body}</p>
       <div className="comment-card-footer">
@@ -44,7 +45,7 @@ const CommentCard = ({
           Votes <span className="votes">{votes}</span>
         </div>
         {author === username ? (
-          <CommentCardDelete
+          <CommentDeleteButton
             comment_id={comment_id}
             handleDelete={handleDelete}
             isDeleting={isDeleting}

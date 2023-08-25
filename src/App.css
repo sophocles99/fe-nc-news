@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
 
 :root {
-  --background: #fcfaf8; /* #f2e9e4 */
-  --highlight: #415a77; /* #faf7f5 */
+  --background: #ececec; /* #f2e9e4 */
+  --highlight: #ffffff; /* #faf7f5 */
   --image-text: #fcfaf8;
   --foreground: #141e28; /* #22223b */
   --error: #c52943;
@@ -39,8 +39,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   font-size: 2rem;
+  line-height: 0;
   color: var(--foreground);
-  padding-bottom: 1rem;
+  padding: var(--regular-gap) 0;
 }
 
 nav .title {
@@ -60,7 +61,7 @@ nav .icon {
   /* flex-wrap: nowrap; */
   min-height: 3rem;
   gap: var(--regular-gap);
-  padding-bottom: 1rem;
+  padding-bottom: var(--regular-gap);
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -75,7 +76,7 @@ nav .icon {
   align-items: center;
   height: 2rem;
   color: var(--foreground);
-  background-color: var(--background);
+  background-color: var(--highlight);
   border: 1px solid var(--foreground);
   border-radius: 1rem;
   padding: 0.5rem;
@@ -86,7 +87,7 @@ nav .icon {
 }
 
 .topic-selected {
-  color: var(--background);
+  color: var(--highlight);
   background-color: var(--foreground);
 }
 
@@ -104,9 +105,10 @@ nav .icon {
 /* Article Card */
 .article-card {
   color: var(--foreground);
+  background-color: var(--highlight);
   border-radius: var(--regular-radius);
   margin-bottom: var(--regular-gap);
-  border: 1px solid;
+  /* border: 1px solid; */
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
@@ -145,24 +147,36 @@ nav .icon {
   justify-content: space-between;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  font-size: 0.75rem;
 }
 
 /* Full Article */
+.full-article-container {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.full-article-container::-webkit-scrollbar {
+  display: none;
+}
+
 .full-article img {
   border-top-left-radius: var(--regular-radius);
   border-top-right-radius: var(--regular-radius);
 }
 
-.full-article .written-by, .body {
+.full-article .written-by,
+.body {
   padding-left: var(--regular-gap);
   padding-right: var(--regular-gap);
+  font-size: 0.75rem;
 }
 
 .full-article .written-by {
   display: flex;
   align-items: center;
   gap: var(--regular-gap);
-  font-size: 0.75rem;
 }
 
 .full-article .written-by {
@@ -174,7 +188,7 @@ nav .icon {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  border: 2px solid var(--foreground)
+  border: 2px solid var(--foreground);
 }
 
 .full-article .author {
@@ -183,7 +197,7 @@ nav .icon {
 
 .vote-button {
   border: none;
-  background-color: var(--background);
+  background-color: var(--highlight);
   padding-right: 0.25rem;
   color: var(--foreground);
 }
@@ -197,10 +211,17 @@ nav .icon {
 }
 
 .comment-card {
-  padding: 0.5rem;
-  background-color: var(--highlight);
   border-radius: var(--regular-radius);
-  margin-bottom: var(--regular-radius);
+  margin-bottom: var(--regular-gap);
+  padding: var(--regular-gap);
+  background-color: var(--highlight);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  font-size: 0.75rem;
+}
+
+.comment-card .author {
+  font-weight: bold;
 }
 
 .comment-card-footer {
@@ -221,24 +242,40 @@ nav .icon {
   padding-left: 0.25rem;
 }
 
-.comment-card-delete-button {
+.comment-form textarea {
+  width: 100%;
   border: none;
   border-radius: var(--regular-radius);
-  background-color: var(--background);
-  color: var(--foreground);
-  font-size: 1rem;
-  padding: 0.5rem;
-}
-
-.comment-form textarea {
   background-color: var(--highlight);
   color: var(--foreground);
-  border: none;
-  width: 100%;
+}
+
+.comment-form textarea:focus {
+  padding: 0.5rem;
+  outline: none;
+  border: 1px solid var(--foreground);
 }
 
 .comment-form textarea::placeholder {
   color: var(--foreground);
+}
+
+.comment-form .button-container {
+  display: flex;
+  gap: var(--regular-gap);
+}
+
+.comment-form button, .comment-card button {
+  height: 2rem;
+  color: var(--foreground);
+  background-color: var(--highlight);
+  border: 1px solid var(--foreground);
+  border-radius: 1rem;
+  padding: 0 0.5rem;
+}
+
+.comment-form button:disabled {
+  opacity: 0.5;
 }
 
 .loading-card,
@@ -273,7 +310,7 @@ nav .icon {
   color: var(--error);
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 550px) {
   .topic-menu {
     margin: 0 auto;
   }
@@ -281,10 +318,16 @@ nav .icon {
   .articles-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 1rem;
+    gap: 0 var(--regular-gap);
   }
 
   .article-card {
-    max-width: 376px;
+    max-width: 382px;
+  }
+
+  .full-article,
+  .comment-card {
+    max-width: 700px;
+    margin: 0 auto var(--regular-gap) auto;
   }
 }

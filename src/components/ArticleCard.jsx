@@ -15,8 +15,10 @@ const ArticleCard = ({
       <img src={article_img_url} />
       <p className="title">{title}</p>
       <div className="footer">
-        <p className="comments">{`Comments ${comment_count}`}</p>
-        <p className="votes">{`Votes ${votes}`}</p>
+        <p className="comments">{`${comment_count} Comment${
+          comment_count !== 1 ? "s" : ""
+        }`}</p>
+        <p className="votes">{`${votes} Vote${votes !== 1 ? "s" : ""}`}</p>
       </div>
     </section>
   );

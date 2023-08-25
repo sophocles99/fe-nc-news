@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import Nav from "../components/Nav";
 import CommentsList from "../components/CommentsList";
-import FullArticleCard from "../components/FullArticleCard";
+import FullArticle from "../components/FullArticle";
 import ErrorCard from "../components/ErrorCard";
 
 const Article = () => {
@@ -47,7 +47,7 @@ const Article = () => {
     <>
       <Nav page="article" />
       <section className="full-article">
-        <FullArticleCard article={article} commentCount={commentCount} />
+        <FullArticle article={article} commentCount={commentCount} />
         <CommentsList
           article_id={article_id}
           setCommentCount={setCommentCount}

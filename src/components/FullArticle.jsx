@@ -1,19 +1,20 @@
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
-import { patchArticleVote } from "../api";
-import { useState } from "react";
+import { getUserByUsername, patchArticleVote } from "../api";
+import { useEffect, useState } from "react";
 
-const FullArticleCard = ({ article, commentCount }) => {
-  const {
-    article_id,
-    title,
-    author,
-    created_at,
-    article_img_url,
-    body,
-  } = article;
+const FullArticle = ({ article, commentCount }) => {
+  const { article_id, title, author, created_at, article_img_url, body } =
+    article;
   const date = new Date(created_at);
+  const [fullAuthor, setFullAuthor] = useState({});
   const [votes, setVotes] = useState(article.votes);
   const [isVoteError, setIsVoteError] = useState(false);
+
+  useEffect(() => {
+    getUserByUsername(author).then(({ user }) => {
+      setFullAuthor(user);
+    });
+  }, []);
 
   const updateVote = (incVotes) => {
     setVotes((currentVotes) => currentVotes + incVotes);
@@ -26,18 +27,16 @@ const FullArticleCard = ({ article, commentCount }) => {
   };
 
   return (
-    <section className="article-card">
-      <h3>{title}</h3>
-      <p>
-        Posted by <span className="author">{author}</span> on{" "}
+    <section className="article-card full-article">
+      <img src={article_img_url} />
+      <p className="title">{title}</p>
+      <p className="written-by">
+        <span className="author">{fullAuthor.name}</span> on{" "}
         {date.toLocaleString("en-GB", { dateStyle: "medium" })}
       </p>
-      <img src={article_img_url} />
-      <p className="article-body">{body}</p>
-      <div className="stats">
-        <p>
-          Comments <span className="comment-count">{commentCount}</span>
-        </p>
+      <p className="body">{body}</p>
+      <div className="footer">
+        {/* <p className="comments">{`Comments ${comment_count}`}</p> */}
         <p>
           <button
             className="vote-button vote-button-down"
@@ -53,12 +52,12 @@ const FullArticleCard = ({ article, commentCount }) => {
           </button>
           Votes <span className="votes">{votes}</span>
         </p>
+        {isVoteError ? (
+          <p className="vote-error">Sorry, votes could not be updated</p>
+        ) : null}
       </div>
-      {isVoteError ? (
-        <p className="vote-error">Sorry, votes could not be updated</p>
-      ) : null}
     </section>
   );
 };
 
-export default FullArticleCard;
+export default FullArticle;

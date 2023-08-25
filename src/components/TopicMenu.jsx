@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import titleCase from "../utils/title-case";
 
 const TopicMenu = ({ topics, topic }) => {
   if (!topic) topic = "All Topics";
   const [selectedTopic, setSelectedTopic] = useState(topic);
+
+  useEffect(() => {
+    setSelectedTopic(topic);
+  }, [topic]);
 
   const navigate = useNavigate();
   const redirect = (topic) => {

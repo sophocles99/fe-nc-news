@@ -9,9 +9,7 @@ const getArticles = (topic, sort_by, order) => {
 };
 
 const getArticleById = (articleId) => {
-  return ncNews
-    .get(`articles/${articleId}`)
-    .then(({ data }) => data);
+  return ncNews.get(`articles/${articleId}`).then(({ data }) => data);
 };
 
 const patchArticleVote = (articleId, inc_votes) => {
@@ -19,6 +17,10 @@ const patchArticleVote = (articleId, inc_votes) => {
   return ncNews
     .patch(`articles/${articleId}`, newVote)
     .then(({ data }) => data);
+};
+
+const getUserByUsername = (username) => {
+  return ncNews.get(`users/${username}`).then(({ data }) => data);
 };
 
 const getCommentsByArticleId = (articleId) => {
@@ -43,6 +45,7 @@ export {
   getArticles,
   getArticleById,
   patchArticleVote,
+  getUserByUsername,
   getCommentsByArticleId,
   postCommentByArticleId,
   deleteComment,

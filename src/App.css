@@ -244,16 +244,19 @@ nav .icon {
 
 .comment-form textarea {
   width: 100%;
-  border: none;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  vertical-align: bottom;
+  outline: none;
+  resize: none;
   border-radius: var(--regular-radius);
   background-color: var(--highlight);
+  border: 1px solid var(--background);
   color: var(--foreground);
 }
 
 .comment-form textarea:focus {
-  padding: 0.5rem;
-  outline: none;
-  border: 1px solid var(--foreground);
+  border-color: var(--foreground);
 }
 
 .comment-form textarea::placeholder {
@@ -265,7 +268,8 @@ nav .icon {
   gap: var(--regular-gap);
 }
 
-.comment-form button, .comment-card button {
+.comment-form button,
+.comment-card button {
   height: 2rem;
   color: var(--foreground);
   background-color: var(--highlight);

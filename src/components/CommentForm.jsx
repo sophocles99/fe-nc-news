@@ -56,8 +56,27 @@ const CommentForm = ({
       });
   };
 
+  const handleReset = (e) => {
+    setIsError(false);
+    setCommentInput("");
+    setIsActive(false);
+  };
+
+  const handleBlur = (e) => {
+    if (e.relatedTarget && e.relatedTarget.type === "reset") {
+      handleReset();
+    }
+    if (!commentInput) {
+      setIsActive(false);
+    }
+  };
+
   return (
-    <form className="comment-card comment-form" onSubmit={addComment}>
+    <form
+      onBlur={handleBlur}
+      onSubmit={addComment}
+      className="comment-card comment-form"
+    >
       <textarea
         placeholder="Add a comment..."
         value={commentInput}
@@ -69,7 +88,7 @@ const CommentForm = ({
       <div className="button-container">
         <button
           type="submit"
-          disabled={!commentInput.length || isPosting}
+          disabled={!commentInput || isPosting}
           style={{ display: `${isActive ? "inline-block" : "none"}` }}
         >
           Comment
@@ -77,11 +96,6 @@ const CommentForm = ({
         <button
           type="reset"
           style={{ display: `${isActive ? "inline-block" : "none"}` }}
-          onClick={() => {
-            setIsError(false);
-            setCommentInput("");
-            setIsActive(false);
-          }}
         >
           Cancel
         </button>

@@ -12,8 +12,11 @@ const CommentForm = ({
   const [isPosting, setIsPosting] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  const addComment = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    if (!commentInput) {
+      return;
+    }
     setIsPosting(true);
     const newComment = { username, body: commentInput };
 
@@ -63,8 +66,13 @@ const CommentForm = ({
   };
 
   const handleBlur = (e) => {
-    if (e.relatedTarget && e.relatedTarget.type === "reset") {
-      handleReset();
+    if (e.relatedTarget) {
+      if (e.relatedTarget.type === "submit" && !commentInput) {
+        return;
+      }
+      if (e.relatedTarget.type === "reset") {
+        handleReset();
+      }
     }
     if (!commentInput) {
       setIsActive(false);
@@ -73,8 +81,8 @@ const CommentForm = ({
 
   return (
     <form
+      onSubmit={handleSubmit}
       onBlur={handleBlur}
-      onSubmit={addComment}
       className="comment-card comment-form"
     >
       <textarea
@@ -88,13 +96,14 @@ const CommentForm = ({
       <div className="button-container">
         <button
           type="submit"
-          disabled={!commentInput || isPosting}
+          className={!commentInput || isPosting ? "disabled" : ""}
           style={{ display: `${isActive ? "inline-block" : "none"}` }}
         >
           Comment
         </button>
         <button
           type="reset"
+          onClick={handleReset}
           style={{ display: `${isActive ? "inline-block" : "none"}` }}
         >
           Cancel

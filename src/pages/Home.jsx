@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <>
-      <Nav page="home" />
+      <Nav page="home" setSortBy={setSortBy} setOrder={setOrder} />
       <TopicMenu className="topic-menu" topics={topics} topic={topic} />
       {/* <section className="filters">
         <SortSelector

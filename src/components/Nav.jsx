@@ -38,6 +38,8 @@ const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
         isMenuOpen={isMenuOpen}
         sortBy={sortBy}
         setSortBy={setSortBy}
+        order={order}
+        setOrder={setOrder}
       />
     </nav>
   );

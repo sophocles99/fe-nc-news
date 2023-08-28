@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy }) => {
+const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
   const sortByOptions = [
     { value: "created_at", text: "Date" },
     { value: "comment_count", text: "Number of Comments" },
@@ -8,10 +8,16 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy }) => {
   ];
 
   const [selectedSortBy, setSelectedSortBy] = useState(sortBy);
+  const [selectedOrder, setSelectedOrder] = useState(order);
 
   const handleSortByChange = (e) => {
     setSelectedSortBy(e.target.value);
     setSortBy(e.target.value);
+  };
+
+  const handleOrderChange = (e) => {
+    setSelectedOrder(e.target.value);
+    setOrder(e.target.value);
   };
 
   return (
@@ -36,6 +42,31 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy }) => {
           </label>
         );
       })}
+      <p className="menu-heading">Order</p>
+      <label
+        className={`menu-option ${selectedOrder === "asc" ? "selected" : ""}`}
+      >
+        <input
+          type="radio"
+          name="order"
+          value="asc"
+          checked={selectedOrder === "asc"}
+          onChange={handleOrderChange}
+        />
+        {selectedSortBy === 'created_at' ? 'Oldest First' : 'Fewest First'}
+      </label>
+      <label
+        className={`menu-option ${selectedOrder === "desc" ? "selected" : ""}`}
+      >
+        <input
+          type="radio"
+          name="order"
+          value="desc"
+          checked={selectedOrder === "desc"}
+          onChange={handleOrderChange}
+        />
+        {selectedSortBy === 'created_at' ? 'Newest First' : 'Most First'}
+      </label>
     </form>
   );
 };

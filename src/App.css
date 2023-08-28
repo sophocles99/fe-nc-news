@@ -392,6 +392,11 @@ nav .icon {
 }
 
 @media screen and (min-width: 550px) {
+  :root {
+    --regular-gap: 1rem;
+    --regular-radius: 0.75rem;
+  }  
+
   nav .title {
     transition: transform 0.4s;
   }
@@ -412,8 +417,7 @@ nav .icon {
 
   .topic-menu {
     margin: 0 auto;
-    padding-left: var(--regular-gap);
-    padding-right: var(--regular-gap);
+    padding: var(--regular-gap);
   }
 
   .articles-list {
@@ -423,7 +427,7 @@ nav .icon {
   }
 
   .article-card {
-    max-width: 382px;
+    max-width: 364px;
   }
 
   .full-article,

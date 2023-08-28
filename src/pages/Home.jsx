@@ -1,8 +1,7 @@
 import Nav from "../components/Nav";
+import TopicMenu from "../components/TopicMenu";
 import ArticlesList from "../components/ArticlesList";
 import ErrorCard from "../components/ErrorCard";
-import TopicMenu from "../components/TopicMenu";
-import SortSelector from "../components/SortSelector";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getTopics } from "../api";
@@ -27,14 +26,6 @@ const Home = () => {
     <>
       <Nav page="home" setSortBy={setSortBy} setOrder={setOrder} />
       <TopicMenu className="topic-menu" topics={topics} topic={topic} />
-      {/* <section className="filters">
-        <SortSelector
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          order={order}
-          setOrder={setOrder}
-        />
-      </section> */}
       <ArticlesList topic={topic} sortBy={sortBy} order={order} />
     </>
   );

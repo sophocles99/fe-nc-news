@@ -41,18 +41,12 @@ nav {
   font-size: 2rem;
   line-height: 0;
   color: var(--foreground);
-  padding: var(--regular-gap) 0;
-  transition: transform 0.4s;
+  padding-top: var(--regular-gap);
+  padding-bottom: var(--regular-gap);
 }
 
 nav .title {
   font-size: 1.5rem;
-  transition: transform 0.4s;
-}
-
-nav .title:hover {
-  transform: scale(1.1);
-  transition: transform 0.4s;
 }
 
 nav .title .company-name {
@@ -61,12 +55,6 @@ nav .title .company-name {
 
 nav .icon {
   vertical-align: middle;
-  transition: transform 0.4s;
-}
-
-nav .icon:hover {
-  transform: scale(1.1);
-  transition: transform 0.4s;
 }
 
 .settings-menu {
@@ -83,12 +71,13 @@ nav .icon:hover {
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: visibility 0.4s, opacity 0.4s ease;
 }
 
 .visible {
   visibility: visible;
   opacity: 1;
+  transition: visibility 0.4s, opacity 0.4s ease;
   z-index: 1;
 }
 
@@ -120,14 +109,11 @@ nav .icon:hover {
 
 .topic-menu {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  /* flex-wrap: nowrap; */
   min-height: 3.5rem;
   gap: var(--regular-gap);
-  padding: var(--regular-gap);
-  /* padding-left: var(--regular-gap);
-  padding-bottom: var(--regular-gap); */
+  padding-top: var(--regular-gap);
+  padding-bottom: var(--regular-gap);
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -401,6 +387,24 @@ nav .icon:hover {
 }
 
 @media screen and (min-width: 550px) {
+  nav .title {
+    transition: transform 0.4s;
+  }
+
+  nav .title:hover {
+    transform: scale(1.1);
+    transition: transform 0.4s;
+  }
+
+  nav .icon {
+    transition: transform 0.4s;
+  }
+
+  nav .icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.4s;
+  }
+
   .topic-menu {
     margin: 0 auto;
   }

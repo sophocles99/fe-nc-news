@@ -6,7 +6,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { useState } from "react";
-import SortMenu from "./SortMenu";
+import SettingsMenu from "./SettingsMenu";
 
 const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +34,11 @@ const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
         <span className="company-name">NC</span>News
       </Link>
       <FaUser className="icon" />
-      <SortMenu isMenuOpen={isMenuOpen} />
+      <SettingsMenu
+        isMenuOpen={isMenuOpen}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+      />
     </nav>
   );
 };

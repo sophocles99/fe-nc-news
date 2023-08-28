@@ -63,7 +63,7 @@ nav .icon {
   display: flex;
   flex-direction: column;
   /* width: 30%; */
-  height: 200px;
+  /* height: 200px; */
   border-radius: var(--regular-radius);
   background-color: var(--background);
   color: var(--foreground);
@@ -92,7 +92,7 @@ nav .icon {
   font-weight: bold;
 }
 
-.settings-menu label {
+.settings-menu .menu-option {
   display: flex;
   align-items: center;
   height: 2.5rem;
@@ -105,6 +105,11 @@ nav .icon {
 
 .settings-menu input[type="radio"] {
   appearance: none;
+}
+
+.settings-menu .selected {
+  color: var(--highlight);
+  background-color: var(--foreground);
 }
 
 .topic-menu {

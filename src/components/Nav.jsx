@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
-import { FaBars, FaChevronCircleLeft, FaUser } from "react-icons/fa";
+import {
+  FaBars,
+  FaWindowClose,
+  FaChevronCircleLeft,
+  FaUser,
+} from "react-icons/fa";
 import { useState } from "react";
 import SortMenu from "./SortMenu";
 
@@ -8,7 +13,11 @@ const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
 
   const topLeftIcon =
     page === "home" ? (
-      <FaBars className="icon" />
+      isMenuOpen ? (
+        <FaWindowClose className="icon" />
+      ) : (
+        <FaBars className="icon" />
+      )
     ) : (
       <FaChevronCircleLeft className="icon" />
     );

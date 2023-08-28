@@ -3,7 +3,6 @@
 :root {
   --background: #ececec; /* #f2e9e4 */
   --highlight: #ffffff; /* #faf7f5 */
-  --image-text: #fcfaf8;
   --foreground: #141e28; /* #22223b */
   --error: #c52943;
   --regular-gap: 0.75rem;
@@ -62,10 +61,8 @@ nav .icon {
   top: 3rem;
   display: flex;
   flex-direction: column;
-  width: 40%;
-  max-width: 20rem;
+  width: 30%;
   height: 200px;
-  padding: var(--regular-gap);
   border-radius: var(--regular-radius);
   background-color: var(--background);
   color: var(--foreground);
@@ -83,6 +80,8 @@ nav .icon {
   display: flex;
   align-items: center;
   height: 2.5rem;
+  padding-left: var(--regular-gap);
+  padding-right: var(--regular-gap);
   font-size: 1rem;
   font-weight: bold;
 }
@@ -91,9 +90,11 @@ nav .icon {
   display: flex;
   align-items: center;
   height: 2.5rem;
+  padding-left: var(--regular-gap);
+  padding-right: var(--regular-gap);
   font-size: 1rem;
-  background-color: var(--background);
-  border-bottom: 1px solid var(--highlight);
+  background-color: var(--highlight);
+  border-top: 1px solid var(--foreground);
 }
 
 .settings-menu input[type="radio"] {

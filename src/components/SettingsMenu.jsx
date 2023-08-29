@@ -11,13 +11,15 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
   const [selectedOrder, setSelectedOrder] = useState(order);
 
   const handleSortByChange = (e) => {
-    setSelectedSortBy(e.target.value);
-    setSortBy(e.target.value);
+    const newSortBy = e.target.value;
+    setSelectedSortBy(newSortBy);
+    setSortBy(newSortBy);
   };
 
   const handleOrderChange = (e) => {
-    setSelectedOrder(e.target.value);
-    setOrder(e.target.value);
+    const newOrder = e.target.value;
+    setSelectedOrder(newOrder);
+    setOrder(newOrder);
   };
 
   return (
@@ -53,7 +55,7 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
           checked={selectedOrder === "asc"}
           onChange={handleOrderChange}
         />
-        {selectedSortBy === 'created_at' ? 'Oldest First' : 'Fewest First'}
+        {selectedSortBy === "created_at" ? "Oldest First" : "Fewest First"}
       </label>
       <label
         className={`menu-option ${selectedOrder === "desc" ? "selected" : ""}`}
@@ -65,7 +67,7 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
           checked={selectedOrder === "desc"}
           onChange={handleOrderChange}
         />
-        {selectedSortBy === 'created_at' ? 'Newest First' : 'Most First'}
+        {selectedSortBy === "created_at" ? "Newest First" : "Most First"}
       </label>
     </form>
   );

@@ -38,24 +38,20 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: calc(2px * var(--regular-gap));
-  font-size: 2rem;
-  line-height: 0;
+  height: calc(4 * var(--regular-gap));
+  font-size: calc(2 * var(--regular-gap));
+  line-height: calc(2 * var(--regular-gap));
   color: var(--foreground);
   padding-top: var(--regular-gap);
   padding-bottom: var(--regular-gap);
 }
 
-nav .title {
-  font-size: calc(2 * var(--regular-gap));
+nav .icon {
+  vertical-align: middle;
 }
 
 nav .title .company-name {
   font-weight: bold;
-}
-
-nav .icon {
-  vertical-align: middle;
 }
 
 .overlay {
@@ -72,7 +68,7 @@ nav .icon {
 
 .settings-menu {
   position: absolute;
-  top: calc(4 * var(--regular-gap));
+  top: calc(3 * var(--regular-gap));
   display: flex;
   flex-direction: column;
   border-radius: var(--regular-radius);

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
 
-.App {
+:root {
   --background: #ececec; /* #f2e9e4 */
   --highlight: #ffffff; /* #faf7f5 */
   --foreground: #141e28; /* #22223b */
@@ -38,6 +38,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: calc(2px * var(--regular-gap));
   font-size: 2rem;
   line-height: 0;
   color: var(--foreground);
@@ -125,10 +126,10 @@ nav .icon {
 .topic-menu {
   display: flex;
   align-items: center;
-  min-height: 3.5rem;
+  min-height: calc(4 * var(--regular-gap));
   gap: var(--regular-gap);
   padding-top: var(--regular-gap);
-  padding-bottom: var(--regular-gap);
+  padding-bottom: calc(2 * var(--regular-gap));
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -403,7 +404,7 @@ nav .icon {
 
 @media screen and (min-width: 550px) {
   :root {
-    --regular-gap: 1rem;
+    --regular-gap: 1.5rem;
     --regular-radius: 0.75rem;
   }
 
@@ -437,7 +438,7 @@ nav .icon {
   }
 
   .article-card {
-    max-width: 376px;
+    max-width: calc((800px - 3 * var(--regular-gap)) / 2)
   }
 
   .full-article,

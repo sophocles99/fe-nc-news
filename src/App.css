@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap");
 
-:root {
+.App {
   --background: #ececec; /* #f2e9e4 */
   --highlight: #ffffff; /* #faf7f5 */
   --foreground: #141e28; /* #22223b */
@@ -46,7 +46,7 @@ nav {
 }
 
 nav .title {
-  font-size: 1.5rem;
+  font-size: calc(2 * var(--regular-gap));
 }
 
 nav .title .company-name {
@@ -71,7 +71,7 @@ nav .icon {
 
 .settings-menu {
   position: absolute;
-  top: 3rem;
+  top: calc(4 * var(--regular-gap));
   display: flex;
   flex-direction: column;
   border-radius: var(--regular-radius);
@@ -89,7 +89,6 @@ nav .icon {
   visibility: visible;
   opacity: 1;
   transition: visibility 0.4s, opacity 0.4s ease;
-  z-index: 1;
 }
 
 .settings-menu .menu-heading {

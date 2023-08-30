@@ -38,7 +38,6 @@ const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
       <Overlay isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
       <SettingsMenu
         isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
         sortBy={sortBy}
         setSortBy={setSortBy}
         order={order}

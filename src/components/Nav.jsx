@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Overlay from "./Overlay";
+import SettingsMenu from "./SettingsMenu";
 import {
   FaBars,
   FaWindowClose,
   FaChevronCircleLeft,
   FaUser,
 } from "react-icons/fa";
-import { useState } from "react";
-import SettingsMenu from "./SettingsMenu";
 
 const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,8 +35,10 @@ const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
         <span className="company-name">NC</span>News
       </Link>
       <FaUser className="icon" />
+      <Overlay isOpen={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)} />
       <SettingsMenu
         isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
         sortBy={sortBy}
         setSortBy={setSortBy}
         order={order}

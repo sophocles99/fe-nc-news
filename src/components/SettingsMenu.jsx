@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
   const sortByOptions = [

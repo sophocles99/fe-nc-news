@@ -57,6 +57,18 @@ nav .icon {
   vertical-align: middle;
 }
 
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.4s, opacity 0.4s ease;
+}
+
 .settings-menu {
   position: absolute;
   top: 3rem;
@@ -394,7 +406,7 @@ nav .icon {
   :root {
     --regular-gap: 1rem;
     --regular-radius: 0.75rem;
-  }  
+  }
 
   nav .title {
     transition: transform 0.4s;
@@ -426,7 +438,7 @@ nav .icon {
   }
 
   .article-card {
-    max-width: 364px;
+    max-width: 376px;
   }
 
   .full-article,

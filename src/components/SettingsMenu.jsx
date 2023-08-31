@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../contexts/Theme";
 
 const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
   const sortByOptions = [
@@ -9,6 +10,7 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
 
   const [selectedSortBy, setSelectedSortBy] = useState(sortBy);
   const [selectedOrder, setSelectedOrder] = useState(order);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const handleSortByChange = (e) => {
     const newSortBy = e.target.value;
@@ -20,6 +22,10 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
     const newOrder = e.target.value;
     setSelectedOrder(newOrder);
     setOrder(newOrder);
+  };
+
+  const handleThemeChange = (e) => {
+    setTheme(e.target.value);
   };
 
   return (
@@ -44,6 +50,7 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
           </label>
         );
       })}
+
       <p className="menu-heading">Order</p>
       <label
         className={`menu-option ${selectedOrder === "asc" ? "selected" : ""}`}
@@ -68,6 +75,28 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
           onChange={handleOrderChange}
         />
         {selectedSortBy === "created_at" ? "Newest First" : "Most First"}
+      </label>
+      
+      <p className="menu-heading">Theme</p>
+      <label className={`menu-option ${theme === "light" ? "selected" : ""}`}>
+        <input
+          type="radio"
+          name="order"
+          value="light"
+          checked={theme === "light"}
+          onChange={handleThemeChange}
+        />
+        Light
+      </label>
+      <label className={`menu-option ${theme === "dark" ? "selected" : ""}`}>
+        <input
+          type="radio"
+          name="order"
+          value="dark"
+          checked={theme === "dark"}
+          onChange={handleThemeChange}
+        />
+        Dark
       </label>
     </form>
   );

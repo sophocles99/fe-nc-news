@@ -3,11 +3,10 @@ import "./App.css";
 import Article from "./pages/Article";
 import Home from "./pages/Home";
 import ErrorCard from "./components/ErrorCard";
-import { useContext } from "react";
-import { ThemeContext } from "./contexts/Theme";
+import { useThemeContext } from "./contexts/Theme";
 
 function App() {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useThemeContext();
 
   return (
     <div className={`App ${theme}`}>

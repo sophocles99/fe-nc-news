@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { ThemeContext } from "../contexts/Theme";
+import { useState } from "react";
+import { useThemeContext } from "../contexts/Theme";
 
 const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
   const sortByOptions = [
@@ -10,7 +10,7 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
 
   const [selectedSortBy, setSelectedSortBy] = useState(sortBy);
   const [selectedOrder, setSelectedOrder] = useState(order);
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useThemeContext();
 
   const handleSortByChange = (e) => {
     const newSortBy = e.target.value;
@@ -76,7 +76,7 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
         />
         {selectedSortBy === "created_at" ? "Newest First" : "Most First"}
       </label>
-      
+
       <p className="menu-heading">Theme</p>
       <label className={`menu-option ${theme === "light" ? "selected" : ""}`}>
         <input

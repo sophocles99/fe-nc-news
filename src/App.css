@@ -13,7 +13,7 @@
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  max-width: 800px;
+  max-width: 900px;
   padding: var(--regular-gap);
   background-color: var(--background);
   color: var(--foreground);
@@ -127,12 +127,14 @@ nav .title .company-name {
 
 .topic-menu {
   display: flex;
+  justify-content: left;
   align-items: center;
   min-height: calc(4 * var(--regular-gap));
   gap: var(--regular-gap);
   padding-top: var(--regular-gap);
   padding-bottom: calc(2 * var(--regular-gap));
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -201,6 +203,7 @@ nav .title .company-name {
 
 .article-card .header {
   display: flex;
+  gap: var(--regular-gap);
   justify-content: space-between;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -208,6 +211,10 @@ nav .title .company-name {
 
 .article-card .header .topic {
   text-transform: uppercase;
+}
+
+.article-card .header .ago-string {
+  text-align: right;
 }
 
 .article-card img {
@@ -404,7 +411,7 @@ nav .title .company-name {
   color: var(--error);
 }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 500px) {
   .App {
     --regular-gap: 1.5rem;
     --regular-radius: 0.75rem;
@@ -429,18 +436,18 @@ nav .title .company-name {
   }
 
   .topic-menu {
-    margin: 0 auto;
-    padding: var(--regular-gap);
+    /* margin: 0 auto; */
+    /* padding: var(--regular-gap); */
   }
 
   .articles-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 0 var(--regular-gap);
   }
 
   .article-card {
-    max-width: calc((800px - 3 * var(--regular-gap)) / 2)
+    max-width: calc((900px - 3 * var(--regular-gap)) / 2)
   }
 
   .full-article,

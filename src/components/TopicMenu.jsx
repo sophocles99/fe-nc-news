@@ -20,22 +20,24 @@ const TopicMenu = ({ topics, topic }) => {
   };
 
   return (
-    <section className="topic-menu">
-      {topics.map(({ slug }) => (
-        <button
-          className={`topic-button ${
-            selectedTopic === slug ? "topic-selected" : ""
-          }`}
-          key={slug}
-          onClick={() => {
-            setSelectedTopic(slug);
-            redirect(slug);
-          }}
-        >
-          {titleCase(slug)}
-        </button>
-      ))}
-    </section>
+    <div className="topic-menu-container">
+      <section className="topic-menu">
+        {topics.map(({ slug }) => (
+          <button
+            className={`topic-button ${
+              selectedTopic === slug ? "topic-selected" : ""
+            }`}
+            key={slug}
+            onClick={() => {
+              setSelectedTopic(slug);
+              redirect(slug);
+            }}
+          >
+            {titleCase(slug)}
+          </button>
+        ))}
+      </section>
+    </div>
   );
 };
 

@@ -125,6 +125,11 @@ nav .title .company-name {
   background-color: var(--foreground);
 }
 
+.topic-menu-container {
+  display: flex;
+  justify-content: center;
+}
+
 .topic-menu {
   display: flex;
   justify-content: left;

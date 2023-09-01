@@ -223,7 +223,7 @@ nav .title .company-name {
 }
 
 .article-card img {
-  max-width: 100%;
+  width: 100%;
 }
 
 .article-card .title {
@@ -451,7 +451,7 @@ nav .title .company-name {
   }
 
   .full-article,
-  .comment-card {
+  .comments-list {
     max-width: 700px;
     margin: 0 auto var(--regular-gap) auto;
   }

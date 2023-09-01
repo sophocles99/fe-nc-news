@@ -435,11 +435,6 @@ nav .title .company-name {
     transition: transform 0.4s;
   }
 
-  .topic-menu {
-    /* margin: 0 auto; */
-    /* padding: var(--regular-gap); */
-  }
-
   .articles-list {
     display: grid;
     grid-template-columns: 1fr 1fr;

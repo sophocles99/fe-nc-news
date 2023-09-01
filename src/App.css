@@ -97,7 +97,7 @@ nav .title .company-name {
 .settings-menu .menu-heading {
   display: flex;
   align-items: center;
-  height: 2.5rem;
+  height: 3rem;
   padding-left: var(--regular-gap);
   padding-right: var(--regular-gap);
   border-bottom: 1px solid var(--foreground);

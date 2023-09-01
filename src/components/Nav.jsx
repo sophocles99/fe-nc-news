@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Overlay from "./Overlay";
 import SettingsMenu from "./SettingsMenu";
@@ -23,14 +23,21 @@ const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
       <FaChevronCircleLeft className="icon" />
     );
 
+  const topLeftRedirect = useNavigate();
+
+  const handleTopLeftClick = () => {
+    if (page === "home") {
+      setIsMenuOpen(!isMenuOpen);
+    } else {
+      topLeftRedirect(-1);
+    }
+  };
+
   return (
     <nav>
-      <Link
-        to={page === "home" ? "" : "/"}
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
+      <section className="icon" onClick={handleTopLeftClick}>
         {topLeftIcon}
-      </Link>
+      </section>
       <Link className="title" to="/">
         <span className="company-name">NC</span>News
       </Link>

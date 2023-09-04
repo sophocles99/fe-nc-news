@@ -12,7 +12,7 @@ import {
 const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const topLeftIcon =
+  const menuIcon =
     page === "home" ? (
       isMenuOpen ? (
         <FaWindowClose className="icon" />
@@ -36,7 +36,7 @@ const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
   return (
     <nav>
       <section className="icon" onClick={handleTopLeftClick}>
-        {topLeftIcon}
+        {menuIcon}
       </section>
       <Link className="title" to="/">
         <span className="company-name">NC</span>News

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import Nav from "../components/Nav";
 import LoadingCard from "../components/LoadingCard";
-import CommentsList from "../components/CommentsList";
+import CommentsList from "../components/CommentList";
 import FullArticle from "../components/FullArticle";
 import ErrorCard from "../components/ErrorCard";
 

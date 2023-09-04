@@ -14,6 +14,7 @@ const CommentsList = ({ article_id, setCommentCount }) => {
     getCommentsByArticleId(article_id)
       .then(({ comments }) => {
         setComments(comments);
+        console.log(comments.length)
       })
       .catch((err) => {})
       .finally(() => {
@@ -27,7 +28,7 @@ const CommentsList = ({ article_id, setCommentCount }) => {
 
   return (
     <ul className="comments-list">
-      {comments.length && <p>No comments yet...</p>}
+      {!comments.length && <p>No comments yet...</p>}
       <CommentForm
         article_id={article_id}
         setComments={setComments}

@@ -1,6 +1,6 @@
 import Nav from "../components/Nav";
 import TopicMenu from "../components/TopicMenu";
-import ArticlesList from "../components/ArticlesList";
+import ArticleList from "../components/ArticleList";
 import ErrorCard from "../components/ErrorCard";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -26,7 +26,7 @@ const Home = () => {
     <>
       <Nav page="home" setSortBy={setSortBy} setOrder={setOrder} />
       <TopicMenu className="topic-menu" topics={topics} topic={topic} />
-      <ArticlesList topic={topic} sortBy={sortBy} order={order} />
+      <ArticleList topic={topic} sortBy={sortBy} order={order} />
     </>
   );
 };

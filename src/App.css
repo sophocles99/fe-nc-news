@@ -23,9 +23,9 @@
 }
 
 .light {
-  --background: #ececec; /* #f2e9e4 */
-  --highlight: #ffffff; /* #faf7f5 */
-  --foreground: #141e28; /* #22223b */
+  --background: #ececec;
+  --highlight: #ffffff;
+  --foreground: #141e28;
 }
 
 .dark {
@@ -39,6 +39,7 @@ a {
   color: var(--foreground);
 }
 
+/* NAV */
 nav {
   position: relative;
   display: flex;
@@ -60,6 +61,7 @@ nav .title .company-name {
   font-weight: bold;
 }
 
+/* SETTINGS MENU */
 .overlay {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
@@ -125,6 +127,7 @@ nav .title .company-name {
   background-color: var(--foreground);
 }
 
+/* TOPIC MENU */
 .topic-menu-container {
   display: flex;
   justify-content: center;
@@ -174,7 +177,7 @@ nav .title .company-name {
   background-color: var(--foreground);
 }
 
-/* Article List */
+/* ARTICLE LIST */
 .articles-list {
   overflow: auto;
   scrollbar-width: none;
@@ -185,7 +188,7 @@ nav .title .company-name {
   display: none;
 }
 
-/* Article Card */
+/* ARTICLE CARD */
 .article-card {
   color: var(--foreground);
   background-color: var(--highlight);
@@ -241,7 +244,7 @@ nav .title .company-name {
   font-size: 0.75rem;
 }
 
-/* Full Article */
+/* FULL ARTICLE */
 .full-article-container {
   overflow: auto;
   scrollbar-width: none;
@@ -305,6 +308,7 @@ nav .title .company-name {
   color: green;
 }
 
+/* COMMENTS */
 .comment-card {
   border-radius: var(--regular-radius);
   margin-bottom: var(--regular-gap);
@@ -384,26 +388,53 @@ nav .title .company-name {
   opacity: 0.5;
 }
 
-.loading-card,
+/* LOADING & ERRORS */
+.loading,
 .error-card {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  color: var(--foreground);
+  background-color: var(--highlight);
+  border-radius: var(--regular-radius);
+  margin-bottom: var(--regular-gap);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   background-color: var(--highlight);
   padding: 1rem;
   border-radius: var(--regular-radius);
   height: 10rem;
-  font-size: 1.5rem;
+}
+
+.spinner {
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border: 0.5rem solid var(--foreground);
+  border-top: 0.5rem solid var(--background);
+  border-radius: 50%;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .error-card Button {
+  height: 2rem;
   color: var(--foreground);
-  background-color: var(--background);
-  padding: 0.75rem;
-  font-size: 1.2rem;
-  border: none;
+  background-color: var(--highlight);
+  border: 1px solid var(--foreground);
   border-radius: 1rem;
+  padding: 0 0.5rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .comment-error {
@@ -447,7 +478,7 @@ nav .title .company-name {
   }
 
   .article-card {
-    max-width: calc((900px - 3 * var(--regular-gap)) / 2)
+    max-width: calc((900px - 3 * var(--regular-gap)) / 2);
   }
 
   .full-article,

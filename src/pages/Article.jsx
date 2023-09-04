@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import Nav from "../components/Nav";
+import LoadingCard from "../components/LoadingCard";
 import CommentsList from "../components/CommentsList";
 import FullArticle from "../components/FullArticle";
 import ErrorCard from "../components/ErrorCard";
@@ -28,19 +29,25 @@ const Article = () => {
   }, []);
 
   if (isLoading) {
-    return <p className="loading">Loading data...</p>;
+    return (
+      <>
+        <Nav />
+        <LoadingCard />
+      </>
+    );
   }
 
   if (error) {
-    if (error.response.status === 404) {
-      return (
-        <ErrorCard message={`Sorry, article ${article_id} does not exist`} />
-      );
-    } else {
-      return (
-        <ErrorCard message={`Sorry, unable to fetch article ${article_id}`} />
-      );
-    }
+    return (
+      <>
+        <Nav page="article" />
+        {error.response.status === 404 ? (
+          <ErrorCard message={"Sorry, that article cannot be found"} />
+        ) : (
+          <ErrorCard message={"Sorry, unable to fetch that article"} />
+        )}
+      </>
+    );
   }
 
   return (

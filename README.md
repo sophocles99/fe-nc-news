@@ -1,5 +1,5 @@
 # NCNews Frontend
-Welcome to my NCNews frontend web application! Written using React, this application provides a user-friendly way to browse articles on various topics and to comment on them. It uses data served by the backend project, be-nc-news.
+Welcome to my NCNews frontend web application! This application provides a user-friendly way to browse news articles on various topics and to comment on them. Written in React and styled with CSS, it uses data served by the backend project, be-nc-news.
 
 A live version of the project is hosted at https://mcqueen-nc-news.netlify.app/  
 (NB The server is hosted on a free service so it may take a minute or two to spin up due to inactivity.)
@@ -9,10 +9,13 @@ A live version of the project is hosted at https://mcqueen-nc-news.netlify.app/
 + Responsive - the design responds to larger screen sizes
 + Dynamic topic filter - the topic filter buttons are created dynamically by querying the database
 + Popup menu - the menu allows sorting of articles by date, number of comments, etc
-+ Dark/light mode - also selectable in the popup menu (uses a custom React hook to provide context)
++ Dark/light mode - also selectable in the popup menu
 + Vote on an article by clicking the upvote or downvote buttons
 + Comment on an article - start typing in the comment box to leave a comment
 + Delete a comment which you have left
+
+## Under the Hood
+A component tree can be viewed here. The project makes use of the following React hooks
 
 ## Next steps
 The logged in user is currently hard-coded as tickle122, so the user icon is inactive. The next steps for this project are:

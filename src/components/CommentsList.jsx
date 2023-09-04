@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCommentsByArticleId } from "../api";
+import LoadingCard from "./LoadingCard";
 import CommentCard from "./CommentCard";
 import CommentForm from "./CommentForm";
 
@@ -21,7 +22,7 @@ const CommentsList = ({ article_id, setCommentCount }) => {
   }, []);
 
   if (isLoading) {
-    return <p className="loading">Loading data...</p>;
+    return <LoadingCard />;
   }
 
   return (

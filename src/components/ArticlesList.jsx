@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getArticles } from "../api";
 import ArticleCard from "./ArticleCard";
+import LoadingCard from "./LoadingCard";
 
 const ArticlesList = ({ topic, sortBy, order }) => {
   const [articles, setArticles] = useState([]);
@@ -19,7 +20,7 @@ const ArticlesList = ({ topic, sortBy, order }) => {
   }, [topic, sortBy, order]);
 
   if (isLoading) {
-    return <p className="loading">Loading data...</p>;
+    return <LoadingCard />;
   }
 
   return (

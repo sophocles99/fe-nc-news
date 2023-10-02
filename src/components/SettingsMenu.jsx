@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { useThemeContext } from "../contexts/Theme";
 
-const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
+const SettingsMenu = ({
+  isMenuOpen,
+  setIsMenuOpen,
+  sortBy,
+  setSortBy,
+  order,
+  setOrder,
+}) => {
   const sortByOptions = [
     { value: "created_at", text: "Date" },
     { value: "comment_count", text: "Number of Comments" },
@@ -16,16 +23,19 @@ const SettingsMenu = ({ isMenuOpen, sortBy, setSortBy, order, setOrder }) => {
     const newSortBy = e.target.value;
     setSelectedSortBy(newSortBy);
     setSortBy(newSortBy);
+    setIsMenuOpen(false);
   };
 
   const handleOrderChange = (e) => {
     const newOrder = e.target.value;
     setSelectedOrder(newOrder);
     setOrder(newOrder);
+    setIsMenuOpen(false);
   };
 
   const handleThemeChange = (e) => {
     setTheme(e.target.value);
+    setIsMenuOpen(false);
   };
 
   return (

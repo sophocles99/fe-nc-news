@@ -14,6 +14,7 @@
   width: 100vw;
   height: 100vh;
   max-width: 900px;
+  min-width: 300px;
   padding: var(--regular-gap);
   background-color: var(--background);
   color: var(--foreground);
@@ -45,12 +46,14 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   height: calc(4 * var(--regular-gap));
+  margin: 0 auto;
+  padding-top: var(--regular-gap);
+  padding-bottom: var(--regular-gap);
   font-size: calc(2 * var(--regular-gap));
   line-height: calc(2 * var(--regular-gap));
   color: var(--foreground);
-  padding-top: var(--regular-gap);
-  padding-bottom: var(--regular-gap);
 }
 
 nav .icon {
@@ -453,6 +456,10 @@ nav .title .company-name {
     --regular-radius: 0.75rem;
   }
 
+  nav.article {
+    max-width: 700px;
+  }
+
   nav .title {
     transition: transform 0.4s;
   }
@@ -489,6 +496,6 @@ nav .title .company-name {
   .full-article,
   .comments-list {
     max-width: 700px;
-    margin: 0 auto var(--regular-gap) auto;
+    margin: var(--regular-gap) auto;
   }
 }

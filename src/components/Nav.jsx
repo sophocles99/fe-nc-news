@@ -34,7 +34,7 @@ const Nav = ({ page, sortBy, setSortBy, order, setOrder }) => {
   };
 
   return (
-    <nav>
+    <nav className={`${page === "home" ? "" : "article"}`}>
       <section className="icon" onClick={handleTopLeftClick}>
         {menuIcon}
       </section>

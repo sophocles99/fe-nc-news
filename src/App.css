@@ -471,6 +471,11 @@ nav .title .company-name {
     transition: transform 0.4s;
   }
 
+  .topic-menu {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .articles-list {
     display: grid;
     grid-template-columns: 1fr 1fr;

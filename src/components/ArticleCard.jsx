@@ -16,9 +16,9 @@ const ArticleCard = ({
       <p className="title">{title}</p>
       <div className="footer">
         <p className="comments">{`${comment_count} Comment${
-          comment_count !== 1 && "s"
+          comment_count !== "1" ? "s" : ""
         }`}</p>
-        <p className="votes">{`${votes} Vote${votes !== 1 && "s"}`}</p>
+        <p className="votes">{`${votes} Vote${votes !== 1 ? "s" : ""}`}</p>
       </div>
     </section>
   );

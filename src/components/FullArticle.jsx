@@ -40,7 +40,7 @@ const FullArticle = ({ article, commentCount }) => {
       <p className="body">{body}</p>
       <div className="footer">
         <p className="comments">{`${commentCount} Comment${
-          commentCount !== 1 && "s"
+          commentCount !== "1" ? "s" : ""
         }`}</p>
         <p>
           <button
@@ -55,7 +55,9 @@ const FullArticle = ({ article, commentCount }) => {
           >
             {FaArrowUp()}
           </button>
-          <span className="votes">{`${votes} Vote${votes !== 1 && "s"}`}</span>
+          <span className="votes">{`${votes} Vote${
+            votes !== 1 ? "s" : ""
+          }`}</span>
         </p>
         {isVoteError ? (
           <p className="vote-error">Sorry, votes could not be updated</p>

@@ -10,7 +10,7 @@ const ago = (date) => {
   for (const [unit, unitSeconds] of Object.entries(timeUnits)) {
     const unitCount = Math.floor(secondsAgo / unitSeconds);
     if (unitCount > 0) {
-      return `${unitCount} ${unit + (unitCount > 1 && "s")} ago`;
+      return `${unitCount} ${unit + (unitCount > 1 ? "s" : "")} ago`;
     }
   }
   return "0 minutes ago";
